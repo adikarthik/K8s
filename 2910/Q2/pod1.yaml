@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod  
+metadata: 
+  name: pod1
+spec:
+  containers:
+  - name: container1
+    image: busybox
+    command: ["/bin/sh", "-c", "sleep 3600"]
+    volumeMounts:
+    - name: host-volume
+      mountPath: /mnt/hostdata
+  volumes:
+  - name: host-volume
+    hostPath:
+      path: /MinikubeVM/hostpath
+      type: Directory
+
